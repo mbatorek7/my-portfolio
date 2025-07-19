@@ -1,9 +1,13 @@
 import React from 'react'
+import { Features, Footer, Hero, Navbar } from './components'
 
 const App = () => {
   return (
-    <div>
-      <h1 className='bg-gray-600 text-white'>Hello World</h1>
+    <div className='min-h-screen overflow-hidden'>
+      <Navbar />
+      <Hero />
+      <Features />
+      <Footer />
     </div>
   )
 }
