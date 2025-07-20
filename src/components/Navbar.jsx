@@ -1,10 +1,12 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+import { Link } from 'react-scroll'
 
 const Navbar = () => {
   return (
-    <div>
-      Navbar
-    </div>
+    <nav>
+      
+    </nav>
   )
 }
 

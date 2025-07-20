@@ -1,5 +1,5 @@
 import React from 'react'
-import { Features, Footer, Hero, MatrixRainingCode, Navbar } from './components'
+import { About, Projects, Contact, Footer, Hero, MatrixRainingCode, Navbar } from './components'
 
 const App = () => {
   return (
@@ -10,7 +10,9 @@ const App = () => {
       <div className='flex flex-col'>
         <Navbar />
         <Hero />
-        <Features />
+        <About />
+        <Projects />
+        <Contact />
         <Footer />
       </div>
 
