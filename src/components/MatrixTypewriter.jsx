@@ -6,11 +6,11 @@ const MatrixTypewriter = () => {
         <div
             style={{
                 backgroundColor: 'black',
-                color: '#0f0',            // green text
+                color: '#0f0',
                 fontFamily: 'Courier',
                 fontSize: '40px',
-                height: '100vh',          // full viewport height
-                display: 'flex',          // center horizontally + vertically
+                height: '100vh',
+                display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
@@ -20,7 +20,7 @@ const MatrixTypewriter = () => {
                 options={{
                     strings: ['Wake Up, Neo...'],
                     autoStart: true,
-                    loop: false,    // only run once
+                    loop: false,
                     delay: 90
                 }}
             />

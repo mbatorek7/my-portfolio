@@ -21,7 +21,7 @@ const MatrixRainingCode = () => {
         let columns = Math.floor(width / 20);
 
         //define characters I want displayed in animation
-        const characters = "abcdefghijklmnopqrstuvwxyz1234567890";
+        const characters = "10";
         const charArray = characters.split("");
 
         //create array to track Y positon of the character in each column
