@@ -5,6 +5,7 @@ import MatrixRainingCode from "./MatrixRainingCode";
 import About from "./About";
 import Projects from "./Projects"
 import Contact from "./Contact"
+import MatrixTypewriter from "./MatrixTypewriter";
 
 export {
     Navbar,
@@ -13,5 +14,6 @@ export {
     Projects,
     Contact,
     Footer,
-    MatrixRainingCode
+    MatrixRainingCode,
+    MatrixTypewriter
 }
