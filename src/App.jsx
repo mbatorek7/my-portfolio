@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Routes, Route } from "react-router-dom"
+import React, { useState, useEffect } from 'react'
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
 import { About, Projects, Contact, Footer, Hero, MatrixRainingCode, Navbar, MatrixTypewriter } from './components'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -7,16 +7,31 @@ const App = () => {
   //animation state
   const [showTypewriter, setShowTypewriter] = useState(false);
   const [showHero, setShowHero] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setShowHero(true);
+    }
+  }, [location.pathname]);
 
   // only show when Name in NavBar is clicked
   const handleNameClick = () => {
     setShowHero(false);
     setShowTypewriter(true);
 
-    // hide after 4 seconds
     setTimeout(() => {
-      setShowHero(true);
       setShowTypewriter(false);
+      if (location.pathname === '/') {
+        navigate("/about");
+      } else if (location.pathname != '/' && location.pathname != '/about') {
+        navigate("/");
+        setShowHero(true); // make sure Hero is visible again
+      } else {
+        navigate("/");
+        setShowHero(true); // make sure Hero is visible again
+      }
     }, 5000); // change duration if needed
   };
 
