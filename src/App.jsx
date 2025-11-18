@@ -4,35 +4,42 @@ import { About, Projects, Contact, Footer, Hero, MatrixRainingCode, Navbar, Matr
 import { AnimatePresence, motion } from 'framer-motion'
 
 const App = () => {
-  //animation state
+  // second animation state
   const [showTypewriter, setShowTypewriter] = useState(false);
   const [showHero, setShowHero] = useState(true);
+  // navigation for onNameClick
   const navigate = useNavigate();
   const location = useLocation();
 
+  // check to see if the user is on the homepage
   useEffect(() => {
-    if (location.pathname === '/') {
+    // show hero as long as second animation isn't running
+    if (location.pathname === '/' && !showTypewriter) {
       setShowHero(true);
     }
-  }, [location.pathname]);
+  }, [location.pathname, showTypewriter]);
 
   // only show when Name in NavBar is clicked
   const handleNameClick = () => {
+    // hide the hero and run animation
     setShowHero(false);
     setShowTypewriter(true);
 
     setTimeout(() => {
       setShowTypewriter(false);
+      // if on homepage, navigate to about
       if (location.pathname === '/') {
         navigate("/about");
+        // if not on homepage or about, naviagte to homepage
       } else if (location.pathname != '/' && location.pathname != '/about') {
         navigate("/");
         setShowHero(true); // make sure Hero is visible again
+        // navigate to homepage if any other path
       } else {
         navigate("/");
         setShowHero(true); // make sure Hero is visible again
       }
-    }, 5000); // change duration if needed
+    }, 5000); // 5 sec duration before hero is shown again
   };
 
   return (
@@ -74,6 +81,7 @@ const App = () => {
 
         />
         <Routes>
+          {/* control Hero state */}
           <Route path="/" element={<Hero visible={showHero} />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
