@@ -4,7 +4,7 @@ import { Link } from 'react-scroll'
 
 const Navbar = ({ onNameClick }) => {
   return (
-    <nav style={{ fontFamily: 'Courier' }} className="flex items-center p-4 mt-3 justify-between bg-transparent w-full relative">
+    <nav style={{ fontFamily: 'Courier' }} className="z-1 flex items-center p-4 mt-3 justify-between bg-transparent w-full relative">
 
       {/* name will slide in from the left */}
       <motion.div
@@ -13,11 +13,13 @@ const Navbar = ({ onNameClick }) => {
         transition={{ duration: 0.8, delay: 0 }}
         className='absolute top-4 left-4 flex items-center'
       >
-        <h1
-          onClick={onNameClick}
-          className="text-[#00FF00] cursor-pointer hover:text-white text-2xl font-bold">
-          Maegan Batorek
-        </h1>
+        <Link to="/">
+          <h1
+            onClick={onNameClick} /* handles second animation state */
+            className="text-[#00FF00] cursor-pointer hover:text-white text-2xl font-bold">
+            Maegan Batorek
+          </h1>
+        </Link>
 
       </motion.div>
 
@@ -34,44 +36,25 @@ const Navbar = ({ onNameClick }) => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-300 hover:text-white mx-4 cursor-pointer"
         >
-          <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            offset={-70}
-          >
-            About
-          </Link>
+          <Link to="/about"> About </Link>
         </motion.div>
+
         <motion.div
           initial={{ y: -20 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-300 hover:text-white mx-4 cursor-pointer"
         >
-          <Link
-            to="projects"
-            smooth={true}
-            duration={500}
-            offset={-70}
-          >
-            Projects
-          </Link>
+          <Link to="/projects"> Projects </Link>
         </motion.div>
+
         <motion.div
           initial={{ y: -20 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-300 hover:text-white mx-4 cursor-pointer"
         >
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            offset={-70}
-          >
-            Contact
-          </Link>
+          <Link to="/contact"> Contact </Link>
         </motion.div>
       </motion.div>
 

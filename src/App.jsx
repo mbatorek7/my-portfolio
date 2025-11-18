@@ -1,17 +1,21 @@
 import React, { useState } from 'react'
+import { Routes, Route } from "react-router-dom"
 import { About, Projects, Contact, Footer, Hero, MatrixRainingCode, Navbar, MatrixTypewriter } from './components'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const App = () => {
   //animation state
   const [showTypewriter, setShowTypewriter] = useState(false);
+  const [showHero, setShowHero] = useState(true);
 
-  // only show when btn is clicked
+  // only show when Name in NavBar is clicked
   const handleNameClick = () => {
+    setShowHero(false);
     setShowTypewriter(true);
 
     // hide after 4 seconds
     setTimeout(() => {
+      setShowHero(true);
       setShowTypewriter(false);
     }, 5000); // change duration if needed
   };
@@ -50,12 +54,16 @@ const App = () => {
 
 
       <div className='flex flex-col'>
-        <Navbar onNameClick={handleNameClick} />
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-        <Footer />
+        <Navbar
+          onNameClick={handleNameClick}
+
+        />
+        <Routes>
+          <Route path="/" element={<Hero visible={showHero} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </div>
 
     </div>
