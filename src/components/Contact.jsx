@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion } from 'framer-motion';
 
 const Contact = () => {
 
@@ -65,7 +66,16 @@ const Contact = () => {
 
 
   return (
-    <section className="fixed inset-0 flex items-center justify-center bg-transparent px-4 overflow-hidden">
+    <motion.section
+      initial={{ opacity: 0, scale: 0.8, y: 50 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{
+        duration: 0.8,
+        ease: "easeOut",
+        type: "spring",
+        stiffness: 100
+      }}
+      className="fixed inset-0 flex items-center justify-center bg-transparent px-4 overflow-hidden">
       <div className="w-full max-w-2xl border-4 border-gray-500 rounded-lg overflow-hidden shadow-2xl">
         {/* create title bar for new message */}
         <div className="bg-gradient-to-r from-gray-700 to-gray-900 px-3 py-1 flex items-center justify-between">
@@ -135,7 +145,7 @@ const Contact = () => {
 
         </form>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
