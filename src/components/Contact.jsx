@@ -65,7 +65,7 @@ const Contact = () => {
 
 
   return (
-    <section className="py-20 flex items-center justify-center bg-transparent px-4">
+    <section className="fixed inset-0 flex items-center justify-center bg-transparent px-4 overflow-hidden">
       <div className="w-full max-w-2xl border-4 border-gray-500 rounded-lg overflow-hidden shadow-2xl">
         {/* create title bar for new message */}
         <div className="bg-gradient-to-r from-gray-700 to-gray-900 px-3 py-1 flex items-center justify-between">
