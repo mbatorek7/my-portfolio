@@ -67,13 +67,13 @@ const Contact = () => {
 
   return (
     <motion.section
-      initial={{ opacity: 0, scale: 0.8, y: 50 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
+      initial={{ opacity: 0, scale: 0.8, y: 50, filter: "blur(4px) grayscale(100%) saturate(0)" }}
+      animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px) grayscale(0%) saturate(1)" }}
       transition={{
-        duration: 0.8,
+        duration: 0.9,
         ease: "easeOut",
         type: "spring",
-        stiffness: 100
+        stiffness: 80
       }}
       className="fixed inset-0 flex items-center justify-center bg-transparent px-4 overflow-hidden">
       <div className="w-full max-w-2xl border-4 border-gray-500 rounded-lg overflow-hidden shadow-2xl">
