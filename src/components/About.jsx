@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import wordIcon from '../assets/images/wordIcon.png';
 import Clippy from '../assets/images/clippy.png';
+import ctrlBtns from '../assets/images/ctrlbtns.png'
 
 const About = () => {
   return (
@@ -16,12 +17,14 @@ const About = () => {
       >
 
         {/* title bar */}
-        <div className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-2 flex items-center justify-between font-bold select-none">
+        <div className="bg-gradient-to-r from-blue-700 to-blue-800 text-white px-4 py-2 flex items-center justify-between font-bold select-none">
           <div className="flex items-center gap-3">
             <img src={wordIcon} alt="" className="w-5 h-5" />
             <span>about_me.doc - Microsoft Word</span>
           </div>
-          <div className="flex gap-3 text-lg">_ □ X</div>
+          <div className="flex gap-3">
+            <img src={ctrlBtns} alt="2003 word control buttons" className='w-15 h-5'/>
+          </div>
         </div>
 
         {/* toolbar */}
