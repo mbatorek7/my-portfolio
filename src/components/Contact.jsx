@@ -75,6 +75,16 @@ const Contact = () => {
         type: "spring",
         stiffness: 80
       }}
+      exit={{
+        opacity: 0,
+        y: [0, -20, 0, 400],
+        filter: ["blur(0px)", "blur(4px)", "blur(0px)", "blur(20px)"],
+        transition: {
+          duration: 1.4,
+          times: [0, 0.3, 0.4, 1],
+          ease: "easeIn"
+        }
+      }}
       className="fixed inset-0 flex items-center justify-center bg-transparent px-4 overflow-hidden">
       <div className="w-full max-w-2xl border-4 border-gray-500 rounded-lg overflow-hidden shadow-2xl">
         {/* create title bar for new message */}

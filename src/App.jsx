@@ -30,11 +30,7 @@ const App = () => {
       // if on homepage, navigate to about
       if (location.pathname === '/') {
         navigate("/about");
-        // if not on homepage or about, naviagte to homepage
-      } else if (location.pathname != '/' && location.pathname != '/about') {
-        navigate("/");
-        setShowHero(true); // make sure Hero is visible again
-        // navigate to homepage if any other path
+        // if not on homepage naviagte to homepage
       } else {
         navigate("/");
         setShowHero(true); // make sure Hero is visible again
@@ -80,13 +76,21 @@ const App = () => {
           onNameClick={handleNameClick}
 
         />
-        <Routes>
-          {/* control Hero state */}
-          <Route path="/" element={<Hero visible={showHero} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        {/* wrapper for exit animations */}
+        <AnimatePresence mode='wait' initial={false}>
+          <motion.div
+            key={location.pathname}
+            className="fixed inset-0 pointer-events-none"
+          >
+            <Routes location={location}>
+              {/* control Hero state */}
+              <Route path="/" element={<Hero visible={showHero} />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
     </div>
